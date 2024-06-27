@@ -1,4 +1,9 @@
 import { DataSource } from 'typeorm';
+import { Producto } from './entities/Producto';
+import { Pedido } from './entities/Pedido';
+import { PedidoProducto } from './entities/PedidoProducto';
+import { Estado } from './entities/Estado';
+import { TipoEntrega } from './entities/TipoEntrega';
 
 export const AppDataSource = new DataSource ({
     // MySql DB from Avien
@@ -9,5 +14,5 @@ export const AppDataSource = new DataSource ({
     password: 'AVNS_qUddzBaFj9-q09cnB4R',
     database: 'bocado_express',
     synchronize: true,
-    // entities: []
+    entities: [Producto, Pedido, PedidoProducto, Estado, TipoEntrega]
 });
