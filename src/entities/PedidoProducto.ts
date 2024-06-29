@@ -11,9 +11,6 @@ export class PedidoProducto extends BaseEntity {
     @Column()
     cantidad: number;
 
-    @Column()
-    observacion: string;
-
     @ManyToOne(() => Pedido, pedido => pedido.pedidoProductos)
     pedido: Pedido;
   
