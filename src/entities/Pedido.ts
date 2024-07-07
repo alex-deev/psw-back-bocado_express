@@ -28,6 +28,8 @@ export class Pedido extends BaseEntity {
     @Column()
     nombreCliente: string;
     
-    @OneToMany(() => PedidoProducto, pedidoProducto => pedidoProducto.pedido)
+    @OneToMany(() => PedidoProducto, pedidoProducto => pedidoProducto.pedido, {
+        cascade: true
+    })
     pedidoProductos: PedidoProducto[];
 }
