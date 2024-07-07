@@ -4,7 +4,11 @@ import { PedidoProducto } from '../entities/PedidoProducto';
 
 export const getPedidos = async (req: Request, res: Response) => {
     try {
-        const pedidos = await Pedido.find();
+        const pedidos = await Pedido.find({
+            relations: {
+                pedidoProductos: true,
+            }
+        });
         console.log('pedidos: --->'), pedidos;
         return res.json(pedidos);
     } catch (error) {
@@ -15,15 +19,9 @@ export const getPedidos = async (req: Request, res: Response) => {
 };
 
 export const createPedido = async (req: Request, res: Response) => {
-    let pedidoNuevo = new Pedido();
+    const pedidoNuevo = new Pedido();
     Object.assign(pedidoNuevo, req.body);
     await pedidoNuevo.save();
 
-    for (let pedidoProducto of pedidoNuevo.pedidoProductos) {
-        let pedidoProductoNuevo = new PedidoProducto();
-        Object.assign(pedidoProductoNuevo, pedidoProducto);
-        await pedidoProductoNuevo.save();
-    }
-    
     return res.json(pedidoNuevo);
 };
