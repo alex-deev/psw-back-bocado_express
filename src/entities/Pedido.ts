@@ -20,7 +20,7 @@ export class Pedido extends BaseEntity {
     observacion: string;
 
     @Column()
-    precioTotal: number;
+    precioTotal: number; //se sugiere que el tipo de dato sea "decimal"
 
     @Column()
     tipoEntrega: string;
