@@ -19,9 +19,15 @@ export const getPedidos = async (req: Request, res: Response) => {
 };
 
 export const createPedido = async (req: Request, res: Response) => {
-    const pedidoNuevo = new Pedido();
-    Object.assign(pedidoNuevo, req.body);
-    await pedidoNuevo.save();
-
-    return res.json(pedidoNuevo);
+    try {
+        const pedidoNuevo = new Pedido();
+        Object.assign(pedidoNuevo, req.body);
+        await pedidoNuevo.save();
+    
+        return res.json(pedidoNuevo);
+    } catch (error) {
+        if (error instanceof Error) {
+            return res.status(500).json({ message: error.message });
+        }
+    }
 };
