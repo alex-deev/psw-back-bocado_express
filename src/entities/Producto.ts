@@ -15,7 +15,7 @@ export class Producto extends BaseEntity {
     descripcion: string;
 
     @Column('decimal', { precision: 10, scale: 2 })
-    precio: number;
+    precio: number; //se sugiere que el tipo de dato sea "decimal"
 
     @Column()
     imagen: string;

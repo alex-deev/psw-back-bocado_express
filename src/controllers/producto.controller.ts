@@ -8,7 +8,7 @@ export const getProductos = async (req: Request, res: Response) => {
                 estado: true,
             },
         });
-        console.log('productos: --->'), productos;
+        console.log('productos: --->'), productos;   //se sugiere console.log('productos: --->', productos);
         return res.json(productos);
     } catch (error) {
         if (error instanceof Error) {
