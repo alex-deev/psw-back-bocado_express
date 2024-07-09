@@ -6,7 +6,7 @@ export const getPedidos = async (req: Request, res: Response) => {
     try {
         const pedidos = await Pedido.find({
             relations: {
-                pedidoProductos: true,
+                pedidoProductos: { producto: true }
             }
         });
         console.log('pedidos: --->'), pedidos;
