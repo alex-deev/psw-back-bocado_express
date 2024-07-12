@@ -29,7 +29,7 @@ export class Pedido extends BaseEntity {
     nombreCliente: string;
     
     @OneToMany(() => PedidoProducto, pedidoProducto => pedidoProducto.pedido, {
-        cascade: true
+        cascade: true //permite guardar todos los datos del pedido incluyendo los productos en la tabla intermedia pedidoProducto
     })
     pedidoProductos: PedidoProducto[];
 }
