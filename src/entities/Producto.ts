@@ -1,6 +1,5 @@
-import { BaseEntity, Column, Decimal128, Double, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Estado } from "./Estado";
-import { Pedido } from "./Pedido";
 import { PedidoProducto } from "./PedidoProducto";
 
 @Entity() // se puede pasar como parametro el nombre de tabla ej: 'usersTable'
